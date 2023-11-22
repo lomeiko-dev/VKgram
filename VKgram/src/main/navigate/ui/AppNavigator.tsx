@@ -1,7 +1,6 @@
 import React from "react";
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
-import {NavigationContainer} from "@react-navigation/native";
 import {UsersScreen} from "screens/users";
 import {ProfileScreen} from "screens/profile";
 import {ChatsScreen} from "screens/chats";
@@ -17,7 +16,6 @@ interface IAppNavigatorProps {
 export const AppNavigator = ({isAuthData}: IAppNavigatorProps) => {
     const Stack = createNativeStackNavigator();
     return (
-        <NavigationContainer>
             <Stack.Navigator initialRouteName={isAuthData ? nameNavigate.profile : nameNavigate.auth}>
                 <Stack.Screen
                     name={nameNavigate.users}
@@ -40,6 +38,5 @@ export const AppNavigator = ({isAuthData}: IAppNavigatorProps) => {
                     component={AuthScreen}
                     options={{headerShown:false}}/>
             </Stack.Navigator>
-        </NavigationContainer>
     );
 }
