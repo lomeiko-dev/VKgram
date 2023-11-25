@@ -1,20 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export const getStyles = (
-    marginLeft?: number,
-    marginRight?: number,
-    marginTop?: number,
-    marginBottom?: number,
-
-    paddingLeft?: number,
-    paddingRight?: number,
-    paddingTop?: number,
-    paddingBottom?: number,
-
-    borderRadius?: number,
-    borderWidth?: number,
+    marginLeft?: number, marginRight?: number, marginTop?: number, marginBottom?: number,
+    paddingLeft?: number, paddingRight?: number, paddingTop?: number, paddingBottom?: number,
+    borderRadius?: number, borderWidth?: number,
     borderStyle?: "solid" | "dotted" | "dashed",
-    borderColor?: string) =>
+    borderColor?: string,
+    isCenterText?: boolean) =>
     StyleSheet.create({
         _text: {
             marginLeft: marginLeft,
@@ -29,6 +21,7 @@ export const getStyles = (
             borderStyle: borderStyle,
             borderWidth: borderWidth,
             borderColor: borderColor,
+            textAlign: isCenterText ? 'center' : undefined
         }
     })
 

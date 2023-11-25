@@ -1,4 +1,4 @@
-import { TouchableOpacityProps } from "react-native"
+import { DimensionValue, TouchableOpacityProps} from "react-native"
 import { TouchableOpacity } from "react-native"
 import { enumButtonStyle, getDefaultStyles, getStyles } from "./TextButton.styles"
 
@@ -7,13 +7,18 @@ interface ITextButtonProps extends TouchableOpacityProps {
     buttonStyle: enumButtonStyle,
     bgColor?: string
     isCircle?: boolean,
-    width: number,
-    height: number,
+    width: DimensionValue,
+    height: DimensionValue,
     color?: string,
     marginLeft?: number,
     marginRight?: number,
     marginTop?: number,
     marginBottom?: number,
+    position?: boolean,
+    top?: number,
+    left?: number,
+    right?: number,
+    bottom?: number
 }
 
 export const TextButton: React.FC<ITextButtonProps> = (props) => {
@@ -29,11 +34,17 @@ export const TextButton: React.FC<ITextButtonProps> = (props) => {
         marginRight,
         marginTop,
         marginBottom,
+        position = false,
+        top,
+        left,
+        right,
+        bottom,
         ...otherProps
     } = props
     
-    const defaultStyles = getDefaultStyles(marginTop, marginBottom, marginLeft, marginRight)
-    const styles = getStyles(width, height, color, bgColor, isCircle)
+    const defaultStyles = getDefaultStyles(marginTop, marginBottom, marginLeft, marginRight,
+                position, top, left, right, bottom, isCircle, width, height)
+    const styles = getStyles(color, bgColor)
 
     return (
         <TouchableOpacity 

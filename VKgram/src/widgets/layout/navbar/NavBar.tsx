@@ -1,17 +1,21 @@
-import {useState, useCallback} from "react"
 import { StackNavigationProp } from "react-navigation-stack/lib/typescript/src/vendor/types";
+
 import { TextButton, enumButtonStyle } from "shared/ui/text-button"
+import { Panel, enumPanelStyles } from "shared/ui/panel";
 
 import { CgProfile } from "react-icons/cg";
 import { BsChatSquareDotsFill } from "react-icons/bs";
 import { FaRegNewspaper } from "react-icons/fa";
 import { FaUsers } from "react-icons/fa";
 
-import { enumKeyNavigation } from "shared/config/navigate/types";
+import {useState, useCallback} from "react"
 import { useNavigation } from "@react-navigation/core";
-import { Panel, enumPanelStyles } from "shared/ui/panel";
+import { useTheme } from "shared/lib/hooks/useTheme";
+
+import { enumKeyNavigation } from "shared/config/navigate/types";
 
 export const NavBar = () => {
+    const {theme} = useTheme();
     const [select, setSelect] = useState(1);
     const navigation: StackNavigationProp<enumKeyNavigation, enumKeyNavigation.PROFILE> 
         = useNavigation();
@@ -23,7 +27,7 @@ export const NavBar = () => {
 
     return (
         <Panel
-            bgColor="#fff"
+            bgColor={theme.primaryColor}
             position={true} bottom={0}
             styleSheet={{alignItems: "center", justifyContent: "space-around"}} 
             stylePanel={enumPanelStyles.ROW}>
@@ -31,25 +35,28 @@ export const NavBar = () => {
                     onPress={() => navigateHandle(0, enumKeyNavigation.PROFILE)}
                     width={75} height={50} 
                     buttonStyle={select === 0 ? enumButtonStyle.SUBMIT : enumButtonStyle.NONE}>
-                    <CgProfile size={32}/>
+                    <CgProfile color={theme.textColor} size={32}/>
                 </TextButton>
+
                 <TextButton 
                     onPress={() => navigateHandle(1, enumKeyNavigation.CHATS)}
                     width={75} height={50} 
                     buttonStyle={select === 1 ? enumButtonStyle.SUBMIT : enumButtonStyle.NONE}>
-                    <BsChatSquareDotsFill size={32}/>
+                    <BsChatSquareDotsFill color={theme.textColor} size={32}/>
                 </TextButton>
+
                 <TextButton 
                     onPress={() => navigateHandle(2, enumKeyNavigation.POSTS)}
                     width={75} height={50} 
                     buttonStyle={select === 2 ? enumButtonStyle.SUBMIT : enumButtonStyle.NONE}>
-                    <FaRegNewspaper size={32}/>
+                    <FaRegNewspaper color={theme.textColor} size={32}/>
                 </TextButton>
+                
                 <TextButton 
                     onPress={() => navigateHandle(3, enumKeyNavigation.USERS)}
                     width={75} height={50} 
                     buttonStyle={select === 3 ? enumButtonStyle.SUBMIT : enumButtonStyle.NONE}>
-                    <FaUsers size={32}/>
+                    <FaUsers color={theme.textColor} size={32}/>
                 </TextButton>
         </Panel>
     )

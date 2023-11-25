@@ -4,13 +4,14 @@ import { ImageStyle } from "react-native"
 import {Image as ImageNative} from "react-native"
 import { enumImageStyle, getImageStyles } from "./Image.styles"
 
-interface IImageProps extends ImageProps {
+interface IImageProps extends Omit<ImageProps, 'source'> {
     imageStyle?: enumImageStyle,
     stylesSheet?: ImageStyle,
     marginTop?: number,
     marginBottom?: number,
     marginLeft?: number,
-    marginRight?: number
+    marginRight?: number,
+    src: string,
 }
 
 export const Image: React.FC<IImageProps> = (props) => {
@@ -32,7 +33,7 @@ export const Image: React.FC<IImageProps> = (props) => {
         <ImageNative
             {...otherProps}
             style={{...styles.imgage, ...stylesSheet, ...styles[imageStyle]}}
-            source={otherProps.source}
+            source={{uri: src}}
         />
     )
 }

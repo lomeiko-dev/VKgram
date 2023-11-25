@@ -10,7 +10,7 @@ export const getImageStyles = (
     marginTop?: number, marginBottom?: number, marginLeft?: number, marginRight?: number) =>
     StyleSheet.create({
         imgage: {
-            backgroundColor: '#333',
+            backgroundColor: 'transperent',
             width: width,
             height: height,
             marginTop: marginTop,

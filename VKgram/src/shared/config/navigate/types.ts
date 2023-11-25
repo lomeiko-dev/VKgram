@@ -4,4 +4,5 @@ export enum enumKeyNavigation  {
     CHATS = "chats",
     USERS = "users",
     POSTS = "posts",
+    SETTINGS = "settings"
 }

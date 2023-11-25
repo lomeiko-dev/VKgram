@@ -17,32 +17,40 @@ export enum enumPanelPasitionStyles {
 }
 
 export const getStyles = (
-        width?: DimensionValue, height?: DimensionValue, 
-        bgColor?: string, 
-        marginLeft?: number, marginRight?: number, marginTop?: number, marginBottom?: number,
-        position?: boolean, top?: number, left?: number, right?: number, bottom?: number) => 
-        StyleSheet.create({
-            panel: {
-                position: position ? 'absolute' : 'relative',
-                top: top,
-                left: left,
-                right: right,
-                bottom: bottom,
-                display: 'flex',
-                width: width === undefined ? '100%' : width,
-                height: height,
-                backgroundColor: bgColor,
-                marginLeft: marginLeft,
-                marginRight: marginRight,
-                marginTop: marginTop,
-                marginBottom: marginBottom
-            }
-})
+    width?: DimensionValue, height?: DimensionValue,
+    bgColor?: string, borderRadius?: number,
+    marginLeft?: number, marginRight?: number, marginTop?: number, marginBottom?: number,
+    paddingLeft?: number, paddingRight?: number, paddingTop?: number, paddingBottom?: number,
+    position?: boolean, top?: number, left?: number, right?: number, bottom?: number) =>
+    StyleSheet.create({
+        panel: {
+            position: position ? 'absolute' : undefined,
+            top: top,
+            left: left,
+            right: right,
+            bottom: bottom,
+            display: 'flex',
+            width: width === undefined ? '100%' : width,
+            height: height,
+            backgroundColor: bgColor === undefined ? 'transparent' : bgColor,
+            marginLeft: marginLeft,
+            marginRight: marginRight,
+            marginTop: marginTop,
+            marginBottom: marginBottom,
+            paddingLeft: paddingLeft,
+            paddingRight: paddingRight,
+            paddingBottom: paddingBottom,
+            paddingTop: paddingTop,
+            borderRadius: borderRadius,
+        }
+    })
 
 export const getDisplayStyles = (style: enumPanelStyles) => {
     const styles = StyleSheet.create({
         row: {
-            flexDirection: 'row'
+            flexDirection: 'row',
+            flexWrap:'wrap'
+            
         },
         column: {
             flexDirection: "column"

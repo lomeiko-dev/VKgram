@@ -6,5 +6,6 @@ export const nameNavigate: Record<enumKeyNavigation, string> = {
     [enumKeyNavigation.POSTS]: "posts",
     [enumKeyNavigation.PROFILE]: "profile",
     [enumKeyNavigation.USERS]: "users",
+    [enumKeyNavigation.SETTINGS]: "settings"
 
 }

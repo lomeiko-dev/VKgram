@@ -3,21 +3,26 @@ import { styles } from "./Layout.styles"
 import { View, ViewStyle} from "react-native"
 import { NavBar } from "./navbar/NavBar"
 import { Header } from "./header/Header"
-import { Panel, enumPanelStyles } from "shared/ui/panel"
+import { Footer } from "widgets/layout/footer/Footer"
 
 interface ILayoutProps {
     children: React.ReactNode,
-    appStyle?: ViewStyle
+    appStyle?: ViewStyle,
+    hideNavbar?: boolean,
 }
 
-export const Layout: React.FC<ILayoutProps> = ({children, appStyle}) => {
+export const Layout: React.FC<ILayoutProps> = (props) => {
+    const { 
+        children,
+        hideNavbar = true,
+        appStyle
+    } = props;
+
     return (
-        <View style={appStyle}>
+        <View style={{...styles.layout, ...appStyle}}>
             <Header/>
-            <Panel height='100%' stylePanel={enumPanelStyles.COLUMN}>
-                {children}
-            </Panel>
-            <NavBar/>
+            {children}
+            {hideNavbar ? <Footer/> : <NavBar/>}
         </View>
     )
 }

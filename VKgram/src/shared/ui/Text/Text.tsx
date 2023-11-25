@@ -22,6 +22,7 @@ interface ITextProps extends TextProps {
     borderColor?: string,
     color?: string,
     fontSize?: number,
+    isCenterText?: boolean,
 }
 
 
@@ -43,6 +44,7 @@ export const Text: React.FC<ITextProps> = (props) => {
         borderColor,
         color,
         fontSize,
+        isCenterText,
         ...otherProps
     } = props;
 
@@ -50,7 +52,7 @@ export const Text: React.FC<ITextProps> = (props) => {
     const styles = getStyles(
         marginLeft, marginRight, marginTop, marginBottom,
         paddingLeft, paddingRight, paddingTop, paddingBottom,
-        borderRadius, borderWidth, borderStyle, borderColor)
+        borderRadius, borderWidth, borderStyle, borderColor, isCenterText)
 
     return(
         <TextNative 
