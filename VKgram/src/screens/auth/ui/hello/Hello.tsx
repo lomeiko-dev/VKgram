@@ -11,7 +11,7 @@ export const Hello = () => {
             <Text isCenterText={true} styleText={enumTextStyles.TITLE} color={theme.textColor}>
                 Добро пожаловать в VK<Text styleText={enumTextStyles.TITLE} color="#00b4d8">gram</Text>!
             </Text>
-            <Image marginTop={10} marginBottom={10} width={120} height={120} src={require('shared/assets/gifs/hello.gif')} />
+            <Image marginTop={30} marginBottom={0} width={120} height={120} src={require('shared/assets/gifs/hello.gif')} />
         </Panel>
     )
 }

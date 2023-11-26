@@ -2,7 +2,7 @@ import React from "react";
 import {AppNavigator} from "./navigate";
 import { Layout } from "widgets/layout";
 
-const isAuth = false;
+const isAuth = true;
 
 export const Main = () => {
     return (
