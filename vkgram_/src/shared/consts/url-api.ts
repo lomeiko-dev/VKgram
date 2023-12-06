@@ -1,0 +1,1 @@
+export const OAUTH_VK = 'https://oauth.vk.com' 

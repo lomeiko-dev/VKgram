@@ -1,1 +1,0 @@
-export {nameNavigate} from "./name-navigate";
